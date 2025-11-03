@@ -1,0 +1,90 @@
+/* style.css */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600&display=swap');
+
+:root {
+  --main-bg: #fffaf5;
+  --accent-color: #ffb6b9;
+  --secondary-color: #fae3d9;
+  --text-color: #555;
+  --highlight: #ff6f91;
+}
+
+body {
+  margin: 0;
+  font-family: 'Nunito', sans-serif;
+  background-color: var(--main-bg);
+  color: var(--text-color);
+  text-align: center;
+}
+
+header {
+  background-color: var(--secondary-color);
+  padding: 20px 0;
+  border-bottom: 3px solid var(--accent-color);
+}
+
+header h1 {
+  font-family: 'Fredoka One', cursive;
+  color: var(--highlight);
+  margin: 0;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--highlight);
+  margin: 0 15px;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--accent-color);
+}
+
+main {
+  padding: 40px 20px;
+}
+
+button {
+  background-color: var(--highlight);
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--accent-color);
+}
+
+/* 귀여운 구름 애니메이션 */
+.cloud {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: float 10s linear infinite;
+}
+
+.cloud.small {
+  width: 50px;
+  height: 30px;
+  top: 60px;
+  left: 20%;
+  animation-delay: 2s;
+}
+
+.cloud.medium {
+  width: 80px;
+  height: 50px;
+  top: 100px;
+  left: 60%;
+}
+
+@keyframes float {
+  from { transform: translateX(-50px); }
+  to { transform: translateX(50px); }
+}
