@@ -1,90 +1,130 @@
 /* style.css */
+/* style.css */
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600&display=swap');
 
 :root {
-  --main-bg: #fffaf5;
-  --accent-color: #ffb6b9;
-  --secondary-color: #fae3d9;
-  --text-color: #555;
-  --highlight: #ff6f91;
+  --bg-gradient: linear-gradient(135deg, #ffe6e6, #fff5d6, #e0ffe4, #d6f0ff);
+  --card-bg: rgba(255, 255, 255, 0.85);
+  --accent-color: #ff7eb9;
+  --highlight: #ff65a3;
+  --text-color: #444;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  margin: 0;
   font-family: 'Nunito', sans-serif;
-  background-color: var(--main-bg);
+  background: var(--bg-gradient);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
   color: var(--text-color);
   text-align: center;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 header {
-  background-color: var(--secondary-color);
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
   padding: 20px 0;
-  border-bottom: 3px solid var(--accent-color);
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 header h1 {
   font-family: 'Fredoka One', cursive;
   color: var(--highlight);
-  margin: 0;
+  font-size: 2rem;
+  margin-bottom: 10px;
 }
 
 nav a {
   text-decoration: none;
-  color: var(--highlight);
+  color: var(--accent-color);
   margin: 0 15px;
-  font-weight: 600;
-  transition: color 0.3s ease;
+  font-weight: 700;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
 }
 
 nav a:hover {
-  color: var(--accent-color);
+  color: var(--highlight);
+  text-shadow: 0 0 8px rgba(255, 101, 163, 0.4);
 }
 
 main {
-  padding: 40px 20px;
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+}
+
+section {
+  background: var(--card-bg);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  padding: 40px;
+  margin: 20px 0;
+  width: 90%;
+  max-width: 800px;
+  animation: floatUp 1s ease forwards;
+}
+
+@keyframes floatUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 button {
-  background-color: var(--highlight);
+  background: var(--accent-color);
   border: none;
   color: white;
-  padding: 10px 20px;
-  border-radius: 25px;
+  padding: 15px 25px;
+  border-radius: 30px;
+  font-size: 1.1rem;
   font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 126, 185, 0.3);
+  transition: all 0.3s ease;
 }
 
 button:hover {
-  background-color: var(--accent-color);
+  background: var(--highlight);
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(255, 101, 163, 0.5);
 }
 
-/* 귀여운 구름 애니메이션 */
-.cloud {
+footer {
+  padding: 20px;
+  font-size: 0.9rem;
+  color: #777;
+}
+
+/* 별 반짝임 효과 */
+.star {
   position: absolute;
   background: white;
   border-radius: 50%;
+  animation: twinkle 3s infinite ease-in-out;
   opacity: 0.8;
-  animation: float 10s linear infinite;
 }
 
-.cloud.small {
-  width: 50px;
-  height: 30px;
-  top: 60px;
-  left: 20%;
-  animation-delay: 2s;
-}
-
-.cloud.medium {
-  width: 80px;
-  height: 50px;
-  top: 100px;
-  left: 60%;
-}
-
-@keyframes float {
-  from { transform: translateX(-50px); }
-  to { transform: translateX(50px); }
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.3); }
 }
