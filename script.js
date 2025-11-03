@@ -1,22 +1,23 @@
 // script.js
+// script.js
 function sayHello() {
-  const messages = [
-    "안녕! 만나서 반가워요 😊",
-    "오늘도 웃는 하루 보내요 🌼",
-    "코딩은 재밌는 놀이에요 🎨",
-    "함께 해줘서 고마워요 💖"
+  const greetings = [
+    "안녕! 반가워요 😊",
+    "오늘도 행복한 하루 보내요 🌷",
+    "코딩은 마법 같은 놀이지 🎠",
+    "함께라서 더 즐거워요 💖"
   ];
-  alert(messages[Math.floor(Math.random() * messages.length)]);
+  alert(greetings[Math.floor(Math.random() * greetings.length)]);
 }
 
-// 별을 랜덤하게 배경에 추가
-for (let i = 0; i < 25; i++) {
+// 별 반짝임 효과
+for (let i = 0; i < 30; i++) {
   const star = document.createElement('div');
   star.classList.add('star');
-  star.style.width = `${Math.random() * 4 + 2}px`;
+  star.style.width = `${Math.random() * 3 + 2}px`;
   star.style.height = star.style.width;
   star.style.top = `${Math.random() * 100}vh`;
   star.style.left = `${Math.random() * 100}vw`;
-  star.style.animationDelay = `${Math.random() * 5}s`;
+  star.style.animationDelay = `${Math.random() * 4}s`;
   document.body.appendChild(star);
 }
